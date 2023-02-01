@@ -1,0 +1,15 @@
+---
+/**
+ * Resume Page
+ */
+ import MainLayout from "../layouts/MainLayout.astro";
+import ResumeItem from "../layouts/ResumeItem.astro";
+
+---
+<MainLayout title="Portafolio: Francisco - Resume" activePage= "resume">
+    <h1>Resume</h1>
+    <ResumeItem>
+        <h1 class="text-2xl" slot="title"> Test Title</h1>
+        <p slot="desciption" class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab consequuntur facilis quam eos, cupiditate doloribus porro sed assumenda obcaecati dolor veritatis perferendis delectus aperiam. Assumenda eius repellat eveniet debitis in?</p>
+    </ResumeItem>
+</MainLayout>
