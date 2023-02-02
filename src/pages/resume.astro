@@ -2,15 +2,15 @@
 /**
  * Resume Page
  */
- import MainLayout from "../layouts/MainLayout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import ResumeItem from "../layouts/ResumeItem.astro";
-
+import resumeImgSrc from "../images/resume.jpg"
 ---
 <MainLayout title="Portafolio: Francisco - Resume" activePage= "resume">
     <h1 class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Resume</h1>
     <div class="flex max-w-full justify-center">
         <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-xl dark:bg-gray-800 dark:border-gray-700">
-         <img class="rounded-t-lg" src="resume.jpg" alt="">
+         <img class="rounded-t-lg" src={resumeImgSrc} alt="">
         </div>
     </div>
 </MainLayout>
