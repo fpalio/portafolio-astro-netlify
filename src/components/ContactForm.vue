@@ -52,6 +52,7 @@ function submitForm() {
         </div>
         <div class="flex items-center justify-between">
           <button
+          type="submit"
             class="border-2 border-[#3BA576] text-[#3BA576] py-2 px-4 rounded-lg hover:bg-[#3BA576] hover:text-black"
             @click="submitForm"
           >
