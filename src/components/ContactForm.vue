@@ -13,6 +13,7 @@ function submitForm() {
 
 <template>
     <form name="Contact-Portafolio"
+    netlify
     method="post"
     data-netlify="true"
     data-netlify-honeypot="bot-field" class="bg-[#081710] p-6 rounded-lg shadow-md">
