@@ -7,14 +7,16 @@ import ResumeItem from "../layouts/ResumeItem.astro";
 import resumeImgSrc from "../images/resume.jpg"
 ---
 <MainLayout title="Portafolio: Francisco - Resume" activePage= "resume">
-    <h1 class="block w-fit rounded m-2 px-8  sm:w-full text-3xl text-left align-text-bottom bold uppercase text-white-90">
-        Resume
-     </h1>
-    <div class="flex max-w-full justify-center">
-        <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-xl m-10">
-         <a href={resumeImgSrc}>
-            <img class="rounded-t-lg" src={resumeImgSrc} alt="Resume image">
-         </a>
+    <section class="load bg-[#081710]">
+        <h1 class="block w-fit rounded m-2 px-8  sm:w-full text-3xl text-left align-text-bottom bold uppercase text-white-90">
+            Resume
+         </h1>
+        <div class="flex max-w-full justify-center">
+            <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-xl m-10">
+             <a href={resumeImgSrc}>
+                <img class="rounded-t-lg" src={resumeImgSrc} alt="Resume image">
+             </a>
+            </div>
         </div>
-    </div>
+    </section>
 </MainLayout>
