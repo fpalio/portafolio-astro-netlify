@@ -5,12 +5,22 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import ResumeItem from "../layouts/ResumeItem.astro";
 import resumeImgSrc from "../images/resume.jpg"
+import springSvg from '../images/tech_icons/spring-icon.svg'
+import jsSvg from '../images/tech_icons/javascript.svg'
+import javaSvg from '../images/tech_icons/java.svg'
+import koSvg from '../images/tech_icons/knockout.svg'
+import htmlSvg from '../images/tech_icons/html-5.svg'
+import tailwindSvg from '../images/tech_icons/tailwindcss-icon.svg'
+import reactSvg from '../images/tech_icons/react.svg'
+import semanticSvg from '../images/tech_icons/semantic-ui.svg'
+import reduxSvg from '../images/tech_icons/redux.svg'
+import mongoSvg from '../images/tech_icons/mongodb-icon.svg'
 ---
 <MainLayout title="Portafolio: Francisco - Resume" activePage= "resume">
     <section class="load bg-[#081710]">
-        <h1 class="block w-fit rounded m-2 px-8  sm:w-full text-3xl text-left align-text-bottom bold uppercase text-white-90">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
             Resume
-         </h1>
+        </h1>
         <div class="flex max-w-full justify-center">
             <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-xl m-10">
              <a href={resumeImgSrc}>
@@ -18,5 +28,160 @@ import resumeImgSrc from "../images/resume.jpg"
              </a>
             </div>
         </div>
+        
+        <!-- RESUME JOB ITEMS -->
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            Experience
+        </h1>
+        <div class="mx-10 md:mx-4 md:px-4 grid md:grid-cols-3 gap-x-4 gap-y-4 ">
+            <ResumeItem class="">
+                <h2 slot="job-name" class="font-bold text-2xl">TotalBrokerage</h2>
+                <h2 slot="job-date" class="text-[#3BA576] font-thin">Sept 2021 - To Date</h2>
+                <h2 slot="job-position" class="text-[#3BA576] font-thin">Position: Full Stack Developer</h2>
+                <p slot="job-desc" class="text-[#3BA576] ">
+                    Helped build new features and maintain existing ones on the main TotalBrokerage application.
+                    Worked with Spring boot as well as other front end technologies like Bootstrap, Knockout.js
+                    among others.
+                </p>
+                
+                <div slot="job-icon" class="flex flex-wrap px-6 pt-4 pb-2">
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={javaSvg}>
+                       Java
+                    </span>
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={springSvg}>
+                       Spring-boot
+                    </span>
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={jsSvg}>
+                       JS
+                    </span>
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={koSvg}>
+                       Knockout.js
+                    </span>    
+                </div>
+                <div slot="job-link" class="flex justify-end pr-2">
+                    <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
+                        <a href="https://www.totalbrokerage.com" class="group text-sm py-2 px-2 mx-2 font-bold">
+                            <p class="inline"></p>
+                            <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                              Website
+                        </a>
+                    </div>
+                </div>
+            </ResumeItem>
+
+            <ResumeItem>
+                <h2 slot="job-name" class="font-bold text-2xl">P Stables</h2>
+                <h2 slot="job-date" class="text-[#3BA576] font-thin">May 2021 - Sept 2021</h2>
+                <h2 slot="job-position" class="text-[#3BA576] font-thin">Position: Full Stack React Developer</h2>
+                <p slot="job-desc" class="text-[#3BA576]">
+                    Designed and developed the business website for the P-stables using the react framework, Firebase
+                    as the backend, and Tailwind CSS as the CSS framework. Also was responsible for building the image 
+                    uploading and tagging application.
+                </p>
+                
+                <div slot="job-icon" class="flex flex-wrap px-6 pt-4 pb-2">
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={reactSvg}>
+                       React
+                    </span>
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={tailwindSvg}>
+                       TailwindCss
+                    </span>
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={jsSvg}>
+                       JS
+                    </span>   
+                </div>
+                <div slot="job-link" class="flex justify-end pr-2">
+                    <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
+                        <a href="https://www.p-stables.com" class="group text-sm py-2 px-2 mx-2 font-bold">
+                            <p class="inline"></p>
+                            <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                              Website
+                        </a>
+                    </div>
+                </div>
+            </ResumeItem>
+
+            <ResumeItem>
+                <h2 slot="job-name" class="font-bold text-2xl">Parkner.pe</h2>
+                <h2 slot="job-date" class="text-[#3BA576] font-thin">July 2019 - Sept 2019</h2>
+                <h2 slot="job-position" class="text-[#3BA576] font-thin">Position: Front-end React Developer Intern</h2>
+                <p slot="job-desc" class="text-[#3BA576]">
+                    I developed a business-facing web application using React, Redux, and Semantic-UI frameworks.
+                    My main responsibilities included creating reusable components for the interface.
+                </p>
+                
+                <div slot="job-icon" class="flex flex-wrap px-6 pt-4 pb-2">
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={reactSvg}>
+                       React
+                    </span>
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={reduxSvg}>
+                       Redux
+                    </span>   
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={semanticSvg}>
+                       Semantic-UI
+                    </span>
+                    
+                </div>
+                <div slot="job-link" class="flex justify-end pr-2">
+                    <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
+                        <a href="https://parkner.pe/" class="group text-sm py-2 px-2 mx-2 font-bold">
+                            <p class="inline"></p>
+                            <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                              Website
+                        </a>
+                    </div>
+                </div>
+            </ResumeItem>
+
+            <ResumeItem>
+                <h2 slot="job-name" class="font-bold text-2xl">Universidad de Tecnologia y Ingeniería</h2>
+                <h2 slot="job-date" class="text-[#3BA576] font-thin">June 2017 - July 2017</h2>
+                <h2 slot="job-position" class="text-[#3BA576] font-thin">Position: Front-end React Developer Intern</h2>
+                <p slot="job-desc" class="text-[#3BA576]">
+                    Worked directly with the head of the computer science department to develop engaging computer
+                    science course material as well as benchmarking search times for NoSQL databases in relation to
+                    indexing.
+                </p>
+                
+                <div slot="job-icon" class="flex flex-wrap px-6 pt-4 pb-2">
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[.7rem] inline-block" src={mongoSvg}>
+                       MongoDB
+                    </span>
+                    <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+                        <img class="w-[1.2rem] inline-block" src={jsSvg}>
+                       JS
+                    </span>   
+                </div>
+                <div slot="job-link" class="flex justify-end pr-2">
+                    <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
+                        <a href="https://utec.edu.pe/carreras/ciencia-de-la-computacion" class="group text-sm py-2 px-2 mx-2 font-bold">
+                            <p class="inline"></p>
+                            <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                              Website
+                        </a>
+                    </div>
+                </div>
+            </ResumeItem>
+
+        </div>      
     </section>
 </MainLayout>
