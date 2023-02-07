@@ -107,23 +107,24 @@ if(activePage === "home") {
 		menu.classList.toggle('scale-y-100');
 	});
 </script>
+
 <style is:global>
+	/* GLOBAL LOADING ANIMATION FOR ALL PAGES */
 	.load {
-  animation-duration: 1s;
-  animation-name: slidein;
-  animation-direction: alternate;
-}
+		animation-duration: 1s;
+		animation-name: fade-in-load;
+		animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+	}
 
-@keyframes slidein {
-  from {
-    opacity: 0;
-    transform: translateY(100px);
-  }
+	@keyframes fade-in-load {
+	from {
+		opacity: 0;
+		transform: translateY(100px);
+	}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	}
 </style>
