@@ -4,6 +4,7 @@
  */
 import MainLayout from "../layouts/MainLayout.astro";
 import ResumeItem from "../layouts/ResumeItem.astro";
+import TechnicalSkillList from "../components/TechnicalSkillList.vue";
 
 // SVG IMGS
 import resumeImgSrc from "../images/resume.jpg"
@@ -33,7 +34,7 @@ import reactSpringSvg from '../images/tech_icons/react-spring.svg'
             </div>
         </div>
         <!-- Education ITEMS -->
-        <h2 class="my-4 ml-4 text-xl  tracking-tight md:text-4xl text-white">
+        <h2 class="my-4 ml-4 text-xl text-center tracking-tight md:text-4xl text-white">
             Education
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 mx-10 p-10 rounded-sm border-2 border-[#3BA576] bg-[#0d2118]">
@@ -45,7 +46,7 @@ import reactSpringSvg from '../images/tech_icons/react-spring.svg'
             <p class="inline-block text-[#3BA576] font-thin">Bachelor in Science, Web and Mobile Computing</p>
         </div>
         <!-- RESUME JOB ITEMS -->
-        <h2 class="my-4 ml-4 text-xl  tracking-tight md:text-4xl text-white">
+        <h2 class="my-4 ml-4 text-xl text-center tracking-tight md:text-4xl text-white">
             Experience
         </h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 mx-10 gap-x-3 gap-y-10">
@@ -229,10 +230,43 @@ import reactSpringSvg from '../images/tech_icons/react-spring.svg'
                 </div>
             </div>
         </div> 
+
+        <!-- Volunteer Work -->
+        <h2 class="my-4 ml-4 text-xl text-center tracking-tight md:text-4xl text-white">
+            Volunteer Work
+        </h2>
+        <div class="mx-10 p-10 rounded-sm border-2 border-[#3BA576] bg-[#0d2118]">
+            <h2 class="font-bold text-2xl">Mission Huascaran</h2>
+            <div class="flex mb-4">
+                <p class="text-white font-semibold pr-2">Dec 2018 -  Feb 2019</p>
+            </div>
+            <p class="inline-block text-[#3BA576] font-thin">
+                During the Months of January, when I was in the office I 
+                took part in the NGO expeditions to the rural areas of  Huaraz(11,500 
+                feet above sea level), where I was in charge of educating the teachers 
+                on how to use the donated tablets to better improve their way of teaching,
+                    while other team members helped improve the schools that we visited. After, 
+                    as a remote engineer, I took part in the creation and management of their website
+                    and digital store. Currently, I still make myself available to make changes to 
+                    their website or any other concerns pro bono.
+            </p>
+            <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
+                <a href="https://www.misionhuascaran.org.pe/" class="group text-sm py-2 px-2 mx-2 font-bold">
+                    <p class="inline"></p>
+                    <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Website
+                </a>
+            </div>
+        </div>
         
         <!-- Technical Skills ITEMS -->
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        <h2 class="my-4 ml-4 text-xl text-center tracking-tight md:text-4xl text-white">
             Technical Skills
-        </h1>
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 mx-10 gap-x-3 gap-y-10 mb-10">
+            <TechnicalSkillList client:visible/>
+        </div>
     </section>
 </MainLayout>
