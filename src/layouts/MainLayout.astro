@@ -51,8 +51,9 @@ if(activePage === "home") {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-[#081710] text-white">   
-		<nav class="bg-[#081710] border-gray-200 px-2 sm:px-4 py-2.5 rounded">
+	<body class="text-white">   
+		<canvas id="canvas" ></canvas>
+		<nav class="border-gray-200 px-2 sm:px-4 py-2.5 rounded">
 			<div  class="container flex flex-wrap items-center justify-end mx-auto">
 				<!-- Hamburger Menu -->
 				<button id="nav_btn" data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -109,9 +110,138 @@ if(activePage === "home") {
 		menu.classList.toggle('scale-y-0');
 		menu.classList.toggle('scale-y-100');
 	});
+
+
+	/**
+	 * Background animation
+	 */
+	 var tileSize = 7;
+	// a higher fade factor will make the characters fade quicker
+	var fadeFactor = .75;
+	
+	var canvas;
+	var ctx;
+	
+	var columns = [];
+	var maxStackHeight;
+	
+	function init()
+	{
+		canvas = document.getElementById( 'canvas' );
+		ctx = canvas.getContext( '2d' );
+		ctx.fillStyle = "#081710"
+	
+		// https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
+		const resizeObserver = new ResizeObserver( entries =>
+		{
+			for ( let entry of entries )
+			{
+				if ( entry.contentBoxSize )
+				{
+					// Firefox implements `contentBoxSize` as a single content rect, rather than an array
+					const contentBoxSize = Array.isArray( entry.contentBoxSize ) ? entry.contentBoxSize[0] : entry.contentBoxSize;
+	
+					canvas.width = contentBoxSize.inlineSize;
+					canvas.height = window.innerHeight;
+	
+					initMatrix();
+				}
+			}
+		} );
+	
+		// observe the size of the document
+		resizeObserver.observe( document.documentElement );
+	
+		// start the main loop
+		tick();
+	}
+	
+	function initMatrix()
+	{
+		columns = [];
+	
+		maxStackHeight = Math.ceil(canvas.height/tileSize);
+	
+		// divide the canvas into columns
+		for ( let i = 0 ; i < canvas.width/tileSize ; ++i )
+		{
+			var column = {};
+			// save the x position of the column
+			column.x = i*tileSize;
+			// create a random stack height for the column
+			column.stackHeight = 10+Math.random()*maxStackHeight;
+			// add a counter to count the stack height
+			column.stackCounter = 0;
+			// add the column to the list
+			columns.push( column );
+		}
+	}
+	
+	function draw(){
+		// // draw a semi transparent black rectangle on top of the scene to slowly fade older characters
+		// ctx.fillStyle = "rgb(8,23,16 )";
+		// ctx.fillRect( 0 , 0 , canvas.width , canvas.height );
+		
+		//draw a semi transparent black rectangle on top of the scene to slowly fade older characters
+		ctx.fillStyle = "rgba( 8,23,16 , "+fadeFactor+" )";
+		ctx.fillRect( 0 , 0 , canvas.width , canvas.height );
+	
+		ctx.font = (tileSize-2)+"px monospace";
+		ctx.fillStyle = "rgb(59, 165, 118 )";
+		for ( let i = 0 ; i < columns.length ; ++i )
+		{
+			// pick a random ascii character (change the 94 to a higher number to include more characters)
+			var randomCharacter = String.fromCharCode( 33+Math.floor(Math.random()*94) );
+			ctx.fillText( randomCharacter , columns[i].x , columns[i].stackCounter*tileSize+tileSize );
+	
+			// if the stack is at its height limit, pick a new random height and reset the counter
+			if ( ++columns[i].stackCounter >= columns[i].stackHeight )
+			{
+				columns[i].stackHeight = 10+Math.random()*maxStackHeight;
+				columns[i].stackCounter = 0;
+			}
+		}
+	}
+	
+	// MAIN LOOP
+	function tick() 
+	{    
+		draw();
+		setTimeout( tick , 50 );
+	}
+	
+	var b_isFullscreen = false;
+	
+	function updateTileSize()
+	{
+		tileSize = Math.min( Math.max( document.getElementById("tileSize").value , 10 ) , 100 );
+		initMatrix();
+	}
+	
+	function updateFadeFactor()
+	{
+		fadeFactor = Math.min( Math.max( document.getElementById("fadeFactor").value , 0.0 ) , 1.0 );
+		initMatrix();
+	}
+	//Call animation
+	window.addEventListener("load", (event) => {
+		init();
+	});
+
+
 </script>
 
 <style is:global>
+	#canvas{
+		display:block; 
+		margin:0 auto;
+		position: fixed;
+		z-index: -100;
+		background-color: #081710;
+		height: 100%;
+	}
+
+
 	/* GLOBAL LOADING ANIMATION FOR ALL PAGES */
 	.load {
 		animation-duration: 2s;
@@ -120,14 +250,14 @@ if(activePage === "home") {
 	}
 
 	@keyframes fade-in-load {
-	from {
-		opacity: 0;
-		transform: translateY(100px);
-	}
+		from {
+			opacity: 0;
+			transform: translateY(100px);
+		}
 
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 </style>

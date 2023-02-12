@@ -10,7 +10,7 @@ const message = ref('');
     <form name="Contact-Portafolio"
     action="https://formspree.io/f/xeqwapgo"
     method="POST"
-    class="bg-[#081710] p-6 rounded-lg shadow-md">
+    class="bg-[#081710] p-6 rounded-lg">
     <input type="hidden" name="form-name" value="Contact-Portafolio" />
         <div class="mb-4">
           <label class="block text-[#3BA576] font-medium mb-2" for="name">
