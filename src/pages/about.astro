@@ -3,25 +3,31 @@
  * About Page
  */
 import MainLayout from "../layouts/MainLayout.astro";
-
+import profile from '../images/profile.jpg'
 ---
 <MainLayout title="Portafolio: Francisco - About" activePage= "about">
-    <section class="load bg-[#081710]">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                Welcome to my portafolio website
-            </h1>
-            <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
-                If you see this message I am in the middle of constructing the new version using Astro.js
-            </p>
-            
-            <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
-                <span class="font-semibold text-gray-400 uppercase block">Check out my resume in the mean time</span>
-                <a href="/resume" class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
-                <span class="text-sm font-medium px-4 py-2">Resume</span> 
-                <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-            </a>
-            </div> 
-        </div>
+    <section class="load mb-20">
+        <div class="p-16">
+            <div class="p-8 mt-24 border-2 rounded-md border-[#3BA576] bg-[#081710]">  
+                <div class="grid grid-cols-1 md:grid-cols-3">     
+                    <div class="relative">      
+                        <div class="w-48 h-48 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center overflow-hidden">
+                            <img src={profile}/>    
+                        </div>    
+                    </div>     
+                </div>  
+                    <div class="mt-24 text-center border-b border-[#3BA576] pb-12 text-[#3BA576]">    
+                        <h1 class="text-4xl font-medium ">Francisco Paliouras</h1>    
+                        <p class="mt-8">Currently Working @ TotalBrokerage</p>    
+                        <p class="mt-2">Full Stack Web Developer</p>    
+                        <p class="mt-2">Rochester Institute of Technology</p>  
+                    </div>  
+                    <div class="mt-12 flex flex-col justify-center text-[#3BA576]">    
+                        <p class=" text-center font-light lg:px-16">
+                            To be Added ...
+                        </p>    
+                    </div>
+                </div>
+            </div>
     </section>
 </MainLayout>
