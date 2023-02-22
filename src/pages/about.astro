@@ -3,31 +3,32 @@
  * About Page
  */
 import MainLayout from "../layouts/MainLayout.astro";
-import profile from '../images/profile.jpg'
+import profile from "../images/profile.jpg";
 ---
-<MainLayout title="Portafolio: Francisco - About" activePage= "about">
-    <section class="load mb-20">
-        <div class="p-16">
-            <div class="p-8 mt-24 border-2 rounded-md border-[#3BA576] bg-[#081710]">  
-                <div class="grid grid-cols-1 md:grid-cols-3">     
-                    <div class="relative">      
-                        <div class="w-48 h-48 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center overflow-hidden">
-                            <img src={profile}/>    
-                        </div>    
-                    </div>     
-                </div>  
-                    <div class="mt-24 text-center border-b border-[#3BA576] pb-12 text-[#3BA576]">    
-                        <h1 class="text-4xl font-medium ">Francisco Paliouras</h1>    
-                        <p class="mt-8">Currently Working @ TotalBrokerage</p>    
-                        <p class="mt-2">Full Stack Web Developer</p>    
-                        <p class="mt-2">Rochester Institute of Technology</p>  
-                    </div>  
-                    <div class="mt-12 flex flex-col justify-center text-[#3BA576]">    
-                        <p class=" text-center font-light lg:px-16">
-                            To be Added ...
-                        </p>    
-                    </div>
-                </div>
+
+<MainLayout title="Portafolio: Francisco - About" activePage="about">
+  <section class="load mb-20">
+    <div class="p-16">
+      <div class="mt-24 rounded-md border-2 border-[#3BA576] bg-[#081710] p-8">
+        <div class="grid grid-cols-1 md:grid-cols-3">
+          <div class="relative">
+            <div
+              class="absolute inset-x-0 top-0 mx-auto -mt-24 flex h-48 w-48 items-center justify-center overflow-hidden rounded-full shadow-2xl">
+              <img src={profile} />
             </div>
-    </section>
+          </div>
+        </div>
+        <div
+          class="mt-24 border-b border-[#3BA576] pb-12 text-center text-[#3BA576]">
+          <h1 class="text-4xl font-medium">Francisco Paliouras</h1>
+          <p class="mt-8">Currently Working @ TotalBrokerage</p>
+          <p class="mt-2">Full Stack Web Developer</p>
+          <p class="mt-2">Rochester Institute of Technology</p>
+        </div>
+        <div class="mt-12 flex flex-col justify-center text-[#3BA576]">
+          <p class="text-center font-light lg:px-16">To be Added ...</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </MainLayout>

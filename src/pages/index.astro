@@ -3,69 +3,120 @@
  * Home Page
  */
 import MainLayout from "../layouts/MainLayout.astro";
-import charMobile from '../images/char_mobile.png'
-import charMobile_full from '../images/char_original.png'
+import charMobile from "../images/char_mobile.png";
+import charMobile_full from "../images/char_original.png";
 //NOTE: JS here is treated like server side pre render
 ---
-<MainLayout title="Portafolio: Francisco - Home" activePage= "home" >
-<section class="load mb-40">
+
+<MainLayout title="Portafolio: Francisco - Home" activePage="home">
+  <section class="load mb-40">
     <!-- Text/ Clip art - Hero Section -->
-    <div class="mx-auto max-w-screen-xl text-center pt-14 pl-10 md:pl-48 lg:pl-80 pr-10 md:pr-10">
-        <div class="grid grid-cols-2 gap-4 ">
-            <div class="pt-20">
-                <h1 class="hidden w-full sm:block sm:w-auto text-5xl font-extrabold text-gray-90">
-                Welcome
-                </h1>
-                <h1 class="hidden w-full sm:block sm:w-auto font-extrabold text-xl dark:text-white">
-                    This is my portafolio website, I’m
-                </h1>
-                <h1 class="block w-full sm:hidden sm:w-auto text-4xl text-left font-extrabold text-gray-90">
-                    Welcome, 
-                </h1>
-                <h1 class="block w-full sm:hidden sm:w-auto text-2xl text-left font-extrabold text-gray-90">
-                    This is my portafolio website, I’m
-                </h1>
-                <h1 class="hidden w-full sm:block sm:w-auto my-1 text-5xl align-text-bottom font-extrabold text-gray-90">
-                    Francisco Paliouras
-                </h1>
-                <h1 class="col-span-2 hidden w-[50%] mx-auto my-0 sm:block text-3xl align-text-bottom bg-green-500 text-white-90 font-semibold">
-                    a Web Developer
-                 </h1>
-            </div>
-            <img alt="Mobile Version of cartoon Francisco Paliouras"  class="mx-4 w-40 md:w-40 md:hidden" src={charMobile}/>
-            <img alt="Cartoon Francisco Paliouras" class="mx-4 w-40 md:w-40  hidden md:block" src={charMobile_full}/>
-            <h1 class="col-span-2 block w-full mb-0 sm:hidden sm:w-full text-4xl text-left font-extrabold text-gray-90">
-                Francisco Paliouras
-            </h1>
-            <h1 class="col-span-2 block w-[70%] px-8 sm:hidden sm:w-full text-3xl text-left align-text-bottom bg-green-500 text-white-90 font-semibold">
-               a Web Developer
-            </h1>
+    <div
+      class="mx-auto max-w-screen-xl pt-14 pl-10 pr-10 text-center md:pl-48 md:pr-10 lg:pl-80"
+    >
+      <div class="grid grid-cols-2 gap-4">
+        <div class="pt-20">
+          <h1
+            class="text-gray-90 hidden w-full text-5xl font-extrabold sm:block sm:w-auto"
+          >
+            Welcome
+          </h1>
+          <h1
+            class="hidden w-full text-xl font-extrabold dark:text-white sm:block sm:w-auto"
+          >
+            This is my portafolio website, I’m
+          </h1>
+          <h1
+            class="text-gray-90 block w-full text-left text-4xl font-extrabold sm:hidden sm:w-auto"
+          >
+            Welcome,
+          </h1>
+          <h1
+            class="text-gray-90 block w-full text-left text-2xl font-extrabold sm:hidden sm:w-auto"
+          >
+            This is my portafolio website, I’m
+          </h1>
+          <h1
+            class="text-gray-90 my-1 hidden w-full align-text-bottom text-5xl font-extrabold sm:block sm:w-auto"
+          >
+            Francisco Paliouras
+          </h1>
+          <h1
+            class="text-white-90 col-span-2 mx-auto my-0 hidden w-[50%] bg-green-500 align-text-bottom text-3xl font-semibold sm:block"
+          >
+            a Web Developer
+          </h1>
         </div>
-        
-        
-        <!-- Button Grid - Hero Section -->
-        <div class="grid grid-cols-2 gap-x-0 w-fit mx-auto md:ml-[12%]">
-            <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
-                <a href="/resume" class="group text-sm py-2 px-2 mx-2 font-bold">
-                    <p class="inline">Resume</p>
-                    <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M5.625 1.5H9a3.75 3.75 0 013.75 3.75v1.875c0 1.036.84 1.875 1.875 1.875H16.5a3.75 3.75 0 013.75 3.75v7.875c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 01-1.875-1.875V3.375c0-1.036.84-1.875 1.875-1.875zm5.845 17.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V12a.75.75 0 00-1.5 0v4.19l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" fill-rule="evenodd"></path>
-                        <path d="M14.25 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0016.5 7.5h-1.875a.375.375 0 01-.375-.375V5.25z"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
-                <a href="/contact" class="group text-sm py-2 px-2 mx-2 font-bold">
-                    <p class="inline">Contact Me</p>
-                    <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M19.5 9.75a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5a.75.75 0 011.5 0v2.69l4.72-4.72a.75.75 0 111.06 1.06L16.06 9h2.69a.75.75 0 01.75.75z" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" fill-rule="evenodd"></path>
-                      </svg>
-                    </a>
-            </div>
-            
+        <img
+          alt="Mobile Version of cartoon Francisco Paliouras"
+          class="mx-4 w-40 md:hidden md:w-40"
+          src={charMobile}
+        />
+        <img
+          alt="Cartoon Francisco Paliouras"
+          class="mx-4 hidden w-40 md:block md:w-40"
+          src={charMobile_full}
+        />
+        <h1
+          class="text-gray-90 col-span-2 mb-0 block w-full text-left text-4xl font-extrabold sm:hidden sm:w-full"
+        >
+          Francisco Paliouras
+        </h1>
+        <h1
+          class="text-white-90 col-span-2 block w-[70%] bg-green-500 px-8 text-left align-text-bottom text-3xl font-semibold sm:hidden sm:w-full"
+        >
+          a Web Developer
+        </h1>
+      </div>
+
+      <!-- Button Grid - Hero Section -->
+      <div class="mx-auto grid w-fit grid-cols-2 gap-x-0 md:ml-[12%]">
+        <div
+          class="my-4 flex w-fit overflow-hidden rounded border-2 border-[#3BA576] text-[#3BA576] hover:bg-[#3BA576] hover:text-black"
+        >
+          <a href="/resume" class="group mx-2 py-2 px-2 text-sm font-bold">
+            <p class="inline">Resume</p>
+            <svg
+              class="inline h-5 w-5 pb-1 group-hover:animate-bounce"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.625 1.5H9a3.75 3.75 0 013.75 3.75v1.875c0 1.036.84 1.875 1.875 1.875H16.5a3.75 3.75 0 013.75 3.75v7.875c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 01-1.875-1.875V3.375c0-1.036.84-1.875 1.875-1.875zm5.845 17.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V12a.75.75 0 00-1.5 0v4.19l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z"
+                fill-rule="evenodd"></path>
+              <path
+                d="M14.25 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0016.5 7.5h-1.875a.375.375 0 01-.375-.375V5.25z"
+              ></path>
+            </svg>
+          </a>
         </div>
-        
+        <div
+          class="my-4 flex w-fit overflow-hidden rounded border-2 border-[#3BA576] text-[#3BA576] hover:bg-[#3BA576] hover:text-black"
+        >
+          <a href="/contact" class="group mx-2 py-2 px-2 text-sm font-bold">
+            <p class="inline">Contact Me</p>
+            <svg
+              class="inline h-5 w-5 pb-1 group-hover:animate-bounce"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M19.5 9.75a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5a.75.75 0 011.5 0v2.69l4.72-4.72a.75.75 0 111.06 1.06L16.06 9h2.69a.75.75 0 01.75.75z"
+                fill-rule="evenodd"></path>
+              <path
+                clip-rule="evenodd"
+                d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+                fill-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 </MainLayout>

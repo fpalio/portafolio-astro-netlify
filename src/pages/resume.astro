@@ -7,266 +7,429 @@ import ResumeItem from "../layouts/ResumeItem.astro";
 import TechnicalSkillList from "../components/TechnicalSkillList.vue";
 
 // SVG IMGS
-import resumeImgSrc from "../images/resume.jpg"
-import springSvg from '../images/tech_icons/spring-icon.svg'
-import jsSvg from '../images/tech_icons/javascript.svg'
-import javaSvg from '../images/tech_icons/java.svg'
-import koSvg from '../images/tech_icons/knockout.svg'
-import htmlSvg from '../images/tech_icons/html-5.svg'
-import tailwindSvg from '../images/tech_icons/tailwindcss-icon.svg'
-import reactSvg from '../images/tech_icons/react.svg'
-import semanticSvg from '../images/tech_icons/semantic-ui.svg'
-import reduxSvg from '../images/tech_icons/redux.svg'
-import mongoSvg from '../images/tech_icons/mongodb-icon.svg'
-import reactSpringSvg from '../images/tech_icons/react-spring.svg'
+import resumeImgSrc from "../images/resume.jpg";
+import springSvg from "../images/tech_icons/spring-icon.svg";
+import jsSvg from "../images/tech_icons/javascript.svg";
+import javaSvg from "../images/tech_icons/java.svg";
+import koSvg from "../images/tech_icons/knockout.svg";
+import htmlSvg from "../images/tech_icons/html-5.svg";
+import tailwindSvg from "../images/tech_icons/tailwindcss-icon.svg";
+import reactSvg from "../images/tech_icons/react.svg";
+import semanticSvg from "../images/tech_icons/semantic-ui.svg";
+import reduxSvg from "../images/tech_icons/redux.svg";
+import mongoSvg from "../images/tech_icons/mongodb-icon.svg";
+import reactSpringSvg from "../images/tech_icons/react-spring.svg";
 ---
-<MainLayout title="Portafolio: Francisco - Resume" activePage= "resume">
-    <section class="load">
-        <div class="flex justify-end px-10">
-            <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
-                <a href={resumeImgSrc} target="_blank" class="group text-sm py-2 px-2 mx-2 font-bold">
-                    <p class="inline"></p>
-                        <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" stroke-linecap="round" stroke-linejoin="round"></path>
-                          </svg>
-                        Download Resume
-                </a>
-            </div>
-        </div>
-        <!-- Education ITEMS -->
-        <h2 class="my-4 ml-4 text-xl text-center tracking-tight md:text-4xl text-white">
-            Education
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 mx-10 p-10 rounded-sm border-2 border-[#3BA576] bg-[#0d2118]">
-            <h2 class="font-bold text-2xl">Rochester Institute of Technology</h2>
-            <div class="flex">
-                <p class="text-white font-semibold pr-2">Graduation Date :</p>
-                <p class="text-[#3BA576] inline-block">May 2023</p>
-            </div>
-            <p class="inline-block text-[#3BA576] font-thin">Bachelor in Science, Web and Mobile Computing</p>
-        </div>
-        <!-- RESUME JOB ITEMS -->
-        <h2 class="my-4 ml-4 text-xl text-center tracking-tight md:text-4xl text-white">
-            Experience
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 mx-10 gap-x-3 gap-y-10">
-            <!-- TB -->
-            <div class="flex justify-center ">
-                <div class="block rounded-sm bg-[#0d2118] max-w-sm border-2 border-[#3BA576] hover:shadow-lg hover:shadow-[#3BA576]/50 transition-shadow ease-in delay-150">
-                  <div class="py-3 px-6">
-                    <h2 class="font-bold text-2xl pb-4">TotalBrokerage</h2>
-                    <h2 class="text-[#3BA576] font-thin">Sept 2021 - To Date</h2>
-                    <h2 class="text-[#3BA576] font-thin">Position: Full Stack Developer</h2>
-                  </div>
-                  <div class="p-6">
-                    <p class="text-[#3BA576] ">
-                        Helped build new features and maintain existing ones on the main TotalBrokerage application.
-                        Worked with Spring boot as well as other front end technologies like Bootstrap, Knockout.js
-                        among others.
-                    </p>
 
-                    <div class="flex flex-wrap pt-4">
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="Java icon"  class="w-[1.2rem] inline-block" src={javaSvg}>
-                           Java
-                        </span>
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="Springboot icon"  class="w-[1.2rem] inline-block" src={springSvg}>
-                           Spring-boot
-                        </span>
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img class="w-[1.2rem] inline-block" src={jsSvg}>
-                           JS
-                        </span>
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="Knockout.js icon"  class="w-[1.2rem] inline-block" src={koSvg}>
-                           Knockout.js
-                        </span>    
-                    </div>
-
-                  </div>
-                  <div class="py-3 px-6">
-                    <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
-                        <a href="https://www.totalbrokerage.com" class="group text-sm py-2 px-2 mx-2 font-bold">
-                            <p class="inline"></p>
-                            <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                              Website
-                        </a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <!-- P Stables -->
-            <div class="flex justify-center ">
-                <div class="block rounded-md bg-[#0d2118] max-w-sm border-2 border-[#3BA576] hover:shadow-lg hover:shadow-[#3BA576]/50 transition-shadow ease-in delay-150">
-                  <div class="py-3 px-6">
-                    <h2 class="font-bold text-2xl pb-4">P Stables</h2>
-                    <h2 class="text-[#3BA576] font-thin">May 2021 - Sept 2021</h2>
-                    <h2 class="text-[#3BA576] font-thin">Position: Full Stack React Developer</h2>
-                  </div>
-                  <div class="p-6">
-                    <p class="text-[#3BA576] ">
-                        Designed and developed the business website for the P-stables using the react framework, Firebase
-                        as the backend, and Tailwind CSS as the CSS framework. Also was responsible for building the image 
-                        uploading and tagging application.
-                    </p>
-
-                    <div class="flex flex-wrap pt-4">
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="React.js icon" class="w-[1.2rem] inline-block" src={reactSvg}>
-                           React
-                        </span>
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="TailwindCss icon"  class="w-[1.2rem] inline-block" src={tailwindSvg}>
-                           TailwindCss
-                        </span>
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="Javascript icon"  class="w-[1.2rem] inline-block" src={jsSvg}>
-                           JS
-                        </span>    
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="React spring icon"  class="w-[1.2rem] inline-block" src={reactSpringSvg}>
-                           React-Spring
-                        </span>  
-                    </div>
-
-                  </div>
-                  <div class="py-3 px-6">
-                    <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
-                        <a href="https://www.p-stables.com" class="group text-sm py-2 px-2 mx-2 font-bold">
-                            <p class="inline"></p>
-                            <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                              Website
-                        </a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <!-- Parkner -->
-            <div class="flex justify-center ">
-                <div class="block rounded-md bg-[#0d2118] max-w-sm border-2 border-[#3BA576] hover:shadow-lg hover:shadow-[#3BA576]/50 transition-shadow ease-in delay-150">
-                  <div class="py-3 px-6">
-                    <h2 class="font-bold text-2xl pb-4">Parkner</h2>
-                    <h2 class="text-[#3BA576] font-thin">July 2019 - Sept 2019</h2>
-                    <h2 class="text-[#3BA576] font-thin">Position: Front-end React Developer Intern</h2>
-                  </div>
-                  <div class="p-6">
-                    <p class="text-[#3BA576] ">
-                        I developed a business-facing web application using React, Redux, and Semantic-UI frameworks.
-                        My main responsibilities included creating reusable components for the interface.
-                    </p>
-
-                    <div class="flex flex-wrap pt-4">
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="React.js icon"  class="w-[1.2rem] inline-block" src={reactSvg}>
-                           React
-                        </span>
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="Redux.js icon"  class="w-[1.2rem] inline-block" src={reduxSvg}>
-                           Redux
-                        </span>   
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="Semantic UI icon"  class="w-[1.2rem] inline-block" src={semanticSvg}>
-                           Semantic-UI
-                        </span>   
-                    </div>
-
-                  </div>
-                  <div class="py-3 px-6">
-                    <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
-                        <a href="https://parkner.pe/" class="group text-sm py-2 px-2 mx-2 font-bold">
-                            <p class="inline"></p>
-                            <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                              Website
-                        </a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <!-- UTEC -->
-            <div class="flex justify-center ">
-                <div class="block rounded-md bg-[#0d2118] max-w-sm border-2 border-[#3BA576] hover:shadow-lg hover:shadow-[#3BA576]/50 transition-shadow ease-in delay-150">
-                  <div class="py-3 px-6">
-                    <h2 class="font-bold text-2xl pb-4">Universidad de Tecnologia y Ingeniería</h2>
-                    <h2 class="text-[#3BA576] font-thin">June 2017 - July 2017</h2>
-                    <h2 class="text-[#3BA576] font-thin">Position: Reaserch Assistant</h2>
-                  </div>
-                  <div class="p-6">
-                    <p class="text-[#3BA576] ">
-                        Worked directly with the head of the computer science department to develop engaging computer
-                        science course material as well as benchmarking search times for NoSQL databases in relation to
-                        indexing.
-                    </p>
-
-                    <div class="flex flex-wrap pt-4">
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="mongoDB icon"  class="w-[.7rem] inline-block" src={mongoSvg}>
-                           MongoDB
-                        </span>
-                        <span class="w-f inline-block border-2 border-[#3BA576] text-[#3BA576] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-                            <img alt="Javascript icon"  class="w-[1.2rem] inline-block" src={jsSvg}>
-                           JS
-                        </span>    
-                    </div>
-
-                  </div>
-                  <div class="py-3 px-6">
-                    <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
-                        <a href="https://utec.edu.pe/carreras/ciencia-de-la-computacion" class="group text-sm py-2 px-2 mx-2 font-bold">
-                            <p class="inline"></p>
-                            <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                              Website
-                        </a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-        </div> 
-
-        <!-- Volunteer Work -->
-        <h2 class="my-4 ml-4 text-xl text-center tracking-tight md:text-4xl text-white">
-            Volunteer Work
-        </h2>
-        <div class="mx-10 p-10 rounded-sm border-2 border-[#3BA576] bg-[#0d2118]">
-            <h2 class="font-bold text-2xl">Mission Huascaran</h2>
-            <div class="flex mb-4">
-                <p class="text-white font-semibold pr-2">Dec 2018 -  Feb 2019</p>
-            </div>
-            <p class="inline-block text-[#3BA576] font-thin">
-                During the Months of January, when I was in the office I 
-                took part in the NGO expeditions to the rural areas of  Huaraz(11,500 
-                feet above sea level), where I was in charge of educating the teachers 
-                on how to use the donated tablets to better improve their way of teaching,
-                    while other team members helped improve the schools that we visited. After, 
-                    as a remote engineer, I took part in the creation and management of their website
-                    and digital store. Currently, I still make myself available to make changes to 
-                    their website or any other concerns pro bono.
+<MainLayout title="Portafolio: Francisco - Resume" activePage="resume">
+  <section class="load">
+    <div class="flex justify-end px-10">
+      <div
+        class="my-4 flex w-fit overflow-hidden rounded border-2 border-[#3BA576] text-[#3BA576] hover:bg-[#3BA576] hover:text-black">
+        <a
+          href={resumeImgSrc}
+          target="_blank"
+          class="group mx-2 py-2 px-2 text-sm font-bold">
+          <p class="inline"></p>
+          <svg
+            class="inline h-5 w-5 pb-1 group-hover:animate-bounce"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          Download Resume
+        </a>
+      </div>
+    </div>
+    <!-- Education ITEMS -->
+    <h2
+      class="my-4 ml-4 text-center text-xl tracking-tight text-white md:text-4xl">
+      Education
+    </h2>
+    <div
+      class="mx-10 grid grid-cols-1 rounded-sm border-2 border-[#3BA576] bg-[#0d2118] p-10 md:grid-cols-2">
+      <h2 class="text-2xl font-bold">Rochester Institute of Technology</h2>
+      <div class="flex">
+        <p class="pr-2 font-semibold text-white">Graduation Date :</p>
+        <p class="inline-block text-[#3BA576]">May 2023</p>
+      </div>
+      <p class="inline-block font-thin text-[#3BA576]">
+        Bachelor in Science, Web and Mobile Computing
+      </p>
+    </div>
+    <!-- RESUME JOB ITEMS -->
+    <h2
+      class="my-4 ml-4 text-center text-xl tracking-tight text-white md:text-4xl">
+      Experience
+    </h2>
+    <div class="mx-10 grid gap-x-3 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+      <!-- TB -->
+      <div class="flex justify-center">
+        <div
+          class="block max-w-sm rounded-sm border-2 border-[#3BA576] bg-[#0d2118] transition-shadow delay-150 ease-in hover:shadow-lg hover:shadow-[#3BA576]/50">
+          <div class="py-3 px-6">
+            <h2 class="pb-4 text-2xl font-bold">TotalBrokerage</h2>
+            <h2 class="font-thin text-[#3BA576]">Sept 2021 - To Date</h2>
+            <h2 class="font-thin text-[#3BA576]">
+              Position: Full Stack Developer
+            </h2>
+          </div>
+          <div class="p-6">
+            <p class="text-[#3BA576]">
+              Helped build new features and maintain existing ones on the main
+              TotalBrokerage application. Worked with Spring boot as well as
+              other front end technologies like Bootstrap, Knockout.js among
+              others.
             </p>
-            <div class="flex rounded border-2 border-[#3BA576] text-[#3BA576] hover:text-black hover:bg-[#3BA576] overflow-hidden w-fit my-4">
-                <a href="https://www.misionhuascaran.org.pe/" class="group text-sm py-2 px-2 mx-2 font-bold">
-                    <p class="inline"></p>
-                    <svg class="group-hover:animate-bounce w-5 h-5 inline pb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        Website
-                </a>
+
+            <div class="flex flex-wrap pt-4">
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="Java icon"
+                  class="inline-block w-[1.2rem]"
+                  src={javaSvg}
+                />
+                Java
+              </span>
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="Springboot icon"
+                  class="inline-block w-[1.2rem]"
+                  src={springSvg}
+                />
+                Spring-boot
+              </span>
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img class="inline-block w-[1.2rem]" src={jsSvg} />
+                JS
+              </span>
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="Knockout.js icon"
+                  class="inline-block w-[1.2rem]"
+                  src={koSvg}
+                />
+                Knockout.js
+              </span>
             </div>
+          </div>
+          <div class="py-3 px-6">
+            <div
+              class="my-4 flex w-fit overflow-hidden rounded border-2 border-[#3BA576] text-[#3BA576] hover:bg-[#3BA576] hover:text-black">
+              <a
+                href="https://www.totalbrokerage.com"
+                class="group mx-2 py-2 px-2 text-sm font-bold">
+                <p class="inline"></p>
+                <svg
+                  class="inline h-5 w-5 pb-1 group-hover:animate-bounce"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+                Website
+              </a>
+            </div>
+          </div>
         </div>
-        
-        <!-- Technical Skills ITEMS -->
-        <h2 class="my-4 ml-4 text-xl text-center tracking-tight md:text-4xl text-white">
-            Technical Skills
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 mx-10 gap-x-3 gap-y-10 mb-10">
-            <TechnicalSkillList client:visible/>
+      </div>
+      <!-- P Stables -->
+      <div class="flex justify-center">
+        <div
+          class="block max-w-sm rounded-md border-2 border-[#3BA576] bg-[#0d2118] transition-shadow delay-150 ease-in hover:shadow-lg hover:shadow-[#3BA576]/50">
+          <div class="py-3 px-6">
+            <h2 class="pb-4 text-2xl font-bold">P Stables</h2>
+            <h2 class="font-thin text-[#3BA576]">May 2021 - Sept 2021</h2>
+            <h2 class="font-thin text-[#3BA576]">
+              Position: Full Stack React Developer
+            </h2>
+          </div>
+          <div class="p-6">
+            <p class="text-[#3BA576]">
+              Designed and developed the business website for the P-stables
+              using the react framework, Firebase as the backend, and Tailwind
+              CSS as the CSS framework. Also was responsible for building the
+              image uploading and tagging application.
+            </p>
+
+            <div class="flex flex-wrap pt-4">
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="React.js icon"
+                  class="inline-block w-[1.2rem]"
+                  src={reactSvg}
+                />
+                React
+              </span>
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="TailwindCss icon"
+                  class="inline-block w-[1.2rem]"
+                  src={tailwindSvg}
+                />
+                TailwindCss
+              </span>
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="Javascript icon"
+                  class="inline-block w-[1.2rem]"
+                  src={jsSvg}
+                />
+                JS
+              </span>
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="React spring icon"
+                  class="inline-block w-[1.2rem]"
+                  src={reactSpringSvg}
+                />
+                React-Spring
+              </span>
+            </div>
+          </div>
+          <div class="py-3 px-6">
+            <div
+              class="my-4 flex w-fit overflow-hidden rounded border-2 border-[#3BA576] text-[#3BA576] hover:bg-[#3BA576] hover:text-black">
+              <a
+                href="https://www.p-stables.com"
+                class="group mx-2 py-2 px-2 text-sm font-bold">
+                <p class="inline"></p>
+                <svg
+                  class="inline h-5 w-5 pb-1 group-hover:animate-bounce"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+                Website
+              </a>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+      <!-- Parkner -->
+      <div class="flex justify-center">
+        <div
+          class="block max-w-sm rounded-md border-2 border-[#3BA576] bg-[#0d2118] transition-shadow delay-150 ease-in hover:shadow-lg hover:shadow-[#3BA576]/50">
+          <div class="py-3 px-6">
+            <h2 class="pb-4 text-2xl font-bold">Parkner</h2>
+            <h2 class="font-thin text-[#3BA576]">July 2019 - Sept 2019</h2>
+            <h2 class="font-thin text-[#3BA576]">
+              Position: Front-end React Developer Intern
+            </h2>
+          </div>
+          <div class="p-6">
+            <p class="text-[#3BA576]">
+              I developed a business-facing web application using React, Redux,
+              and Semantic-UI frameworks. My main responsibilities included
+              creating reusable components for the interface.
+            </p>
+
+            <div class="flex flex-wrap pt-4">
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="React.js icon"
+                  class="inline-block w-[1.2rem]"
+                  src={reactSvg}
+                />
+                React
+              </span>
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="Redux.js icon"
+                  class="inline-block w-[1.2rem]"
+                  src={reduxSvg}
+                />
+                Redux
+              </span>
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="Semantic UI icon"
+                  class="inline-block w-[1.2rem]"
+                  src={semanticSvg}
+                />
+                Semantic-UI
+              </span>
+            </div>
+          </div>
+          <div class="py-3 px-6">
+            <div
+              class="my-4 flex w-fit overflow-hidden rounded border-2 border-[#3BA576] text-[#3BA576] hover:bg-[#3BA576] hover:text-black">
+              <a
+                href="https://parkner.pe/"
+                class="group mx-2 py-2 px-2 text-sm font-bold">
+                <p class="inline"></p>
+                <svg
+                  class="inline h-5 w-5 pb-1 group-hover:animate-bounce"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+                Website
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- UTEC -->
+      <div class="flex justify-center">
+        <div
+          class="block max-w-sm rounded-md border-2 border-[#3BA576] bg-[#0d2118] transition-shadow delay-150 ease-in hover:shadow-lg hover:shadow-[#3BA576]/50">
+          <div class="py-3 px-6">
+            <h2 class="pb-4 text-2xl font-bold">
+              Universidad de Tecnologia y Ingeniería
+            </h2>
+            <h2 class="font-thin text-[#3BA576]">June 2017 - July 2017</h2>
+            <h2 class="font-thin text-[#3BA576]">
+              Position: Reaserch Assistant
+            </h2>
+          </div>
+          <div class="p-6">
+            <p class="text-[#3BA576]">
+              Worked directly with the head of the computer science department
+              to develop engaging computer science course material as well as
+              benchmarking search times for NoSQL databases in relation to
+              indexing.
+            </p>
+
+            <div class="flex flex-wrap pt-4">
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="mongoDB icon"
+                  class="inline-block w-[.7rem]"
+                  src={mongoSvg}
+                />
+                MongoDB
+              </span>
+              <span
+                class="w-f mr-2 mb-2 inline-block rounded-full border-2 border-[#3BA576] px-3 py-1 text-sm font-semibold text-[#3BA576]">
+                <img
+                  alt="Javascript icon"
+                  class="inline-block w-[1.2rem]"
+                  src={jsSvg}
+                />
+                JS
+              </span>
+            </div>
+          </div>
+          <div class="py-3 px-6">
+            <div
+              class="my-4 flex w-fit overflow-hidden rounded border-2 border-[#3BA576] text-[#3BA576] hover:bg-[#3BA576] hover:text-black">
+              <a
+                href="https://utec.edu.pe/carreras/ciencia-de-la-computacion"
+                class="group mx-2 py-2 px-2 text-sm font-bold">
+                <p class="inline"></p>
+                <svg
+                  class="inline h-5 w-5 pb-1 group-hover:animate-bounce"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+                Website
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Volunteer Work -->
+    <h2
+      class="my-4 ml-4 text-center text-xl tracking-tight text-white md:text-4xl">
+      Volunteer Work
+    </h2>
+    <div class="mx-10 rounded-sm border-2 border-[#3BA576] bg-[#0d2118] p-10">
+      <h2 class="text-2xl font-bold">Mission Huascaran</h2>
+      <div class="mb-4 flex">
+        <p class="pr-2 font-semibold text-white">Dec 2018 - Feb 2019</p>
+      </div>
+      <p class="inline-block font-thin text-[#3BA576]">
+        During the Months of January, when I was in the office I took part in
+        the NGO expeditions to the rural areas of Huaraz(11,500 feet above sea
+        level), where I was in charge of educating the teachers on how to use
+        the donated tablets to better improve their way of teaching, while other
+        team members helped improve the schools that we visited. After, as a
+        remote engineer, I took part in the creation and management of their
+        website and digital store. Currently, I still make myself available to
+        make changes to their website or any other concerns pro bono.
+      </p>
+      <div
+        class="my-4 flex w-fit overflow-hidden rounded border-2 border-[#3BA576] text-[#3BA576] hover:bg-[#3BA576] hover:text-black">
+        <a
+          href="https://www.misionhuascaran.org.pe/"
+          class="group mx-2 py-2 px-2 text-sm font-bold">
+          <p class="inline"></p>
+          <svg
+            class="inline h-5 w-5 pb-1 group-hover:animate-bounce"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          Website
+        </a>
+      </div>
+    </div>
+
+    <!-- Technical Skills ITEMS -->
+    <h2
+      class="my-4 ml-4 text-center text-xl tracking-tight text-white md:text-4xl">
+      Technical Skills
+    </h2>
+    <div
+      class="mx-10 mb-10 grid gap-x-3 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+      <TechnicalSkillList client:visible />
+    </div>
+  </section>
 </MainLayout>

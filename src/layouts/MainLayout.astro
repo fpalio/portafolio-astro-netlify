@@ -1,304 +1,370 @@
 ---
-
 /**
- * MainLayout 
- * Wrapper layout with all meta data for pages.
+ * MainLayout.astro
+ *
+ * Wrapper layout with meta data and global page functionality.
+ *
+ * Funtionality:
+ * - Nav-bar active page link
+ * - Mobile nav-bar toggle
+ * - Page load animation
+ * - Background canvas animation logic and html elem
  */
-const {title, activePage} = Astro.props;
 
-//Pages Styles
-let activeNavCss = 'block py-2 pl-3 pr-4 text-black bg-[#3BA576] rounded md:bg-transparent md:text-[#3BA576] md:p-0';
-let navCSS = 'block py-2 pl-3 pr-4 text-white rounded hover:bg-[#3BA576] md:hover:bg-transparent md:border-0 md:hover:text-[#3BA576] md:p-0   dark:hover:bg-[#3BA576]  ';
+//COMPONENT PROPS
+const { title, activePage } = Astro.props;
 
-//Style ref values for each navigation item
-var homeCSS = '';
-var aboutCSS = '';
-var contactCSS = '';
-var resumeCSS = '';
+//STYLES FOR NAV ITEMS
+let activeNavCss =
+  "block py-2 pl-3 pr-4 text-black bg-[#3BA576] rounded md:bg-transparent md:text-[#3BA576] md:p-0";
+let navCSS =
+  "block py-2 pl-3 pr-4 text-white rounded hover:bg-[#3BA576] md:hover:bg-transparent md:border-0 md:hover:text-[#3BA576] md:p-0   dark:hover:bg-[#3BA576]  ";
 
-//Checking which page we are on by checking the incoming
-if(activePage === "home") {
-	homeCSS = activeNavCss;
-	aboutCSS = navCSS;
-	contactCSS = navCSS;
-	resumeCSS = navCSS;
-} else if(activePage === "about") {
-	homeCSS = navCSS;
-	aboutCSS = activeNavCss;
-	contactCSS = navCSS;
-	resumeCSS = navCSS;
-} else if(activePage === "contact") {
-	homeCSS = navCSS;
-	aboutCSS = navCSS;
-	contactCSS = activeNavCss;
-	resumeCSS = navCSS;
-} else if(activePage === "resume" ){
-	homeCSS = navCSS;
-	aboutCSS = navCSS;
-	contactCSS = navCSS;
-	resumeCSS = activeNavCss;
+//STYLES REFERENCE VARIABLE
+var homeCSS = "";
+var aboutCSS = "";
+var contactCSS = "";
+var resumeCSS = "";
+
+// Apply the styles to navigation elements | apply different active style to active page.
+if (activePage === "home") {
+  homeCSS = activeNavCss;
+  aboutCSS = navCSS;
+  contactCSS = navCSS;
+  resumeCSS = navCSS;
+} else if (activePage === "about") {
+  homeCSS = navCSS;
+  aboutCSS = activeNavCss;
+  contactCSS = navCSS;
+  resumeCSS = navCSS;
+} else if (activePage === "contact") {
+  homeCSS = navCSS;
+  aboutCSS = navCSS;
+  contactCSS = activeNavCss;
+  resumeCSS = navCSS;
+} else if (activePage === "resume") {
+  homeCSS = navCSS;
+  aboutCSS = navCSS;
+  contactCSS = navCSS;
+  resumeCSS = activeNavCss;
 }
-
 ---
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="Discover the exceptional software development skills of Francisco Paliouras,
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Discover the exceptional software development skills of Francisco Paliouras,
 		 showcasing a diverse portfolio of innovative projects. Explore thier commitment to excellence in every project. 
-		 Please feel free to reach out with opportunities or any other inqueries.">
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="text-white">   
-		<canvas id="canvas" ></canvas>
-		<nav class="border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
-			<div  class="container flex flex-wrap items-center justify-end mx-auto">
-				<!-- Hamburger Menu -->
-				<button id="nav_btn" data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-					<span class="sr-only">Open main menu</span>
-					<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-				</button>
-					<!-- ----DEFAULT WEB NAVIGATION---- -->
-				<div class="hidden w-full md:block md:w-auto" id="navbar-default">
-					<ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 bg-[#081710]">
-					<li>
-						<a href="/" class={homeCSS} aria-current="page">Home</a>
-					</li>
-					<li>
-						<a href="/about" class={aboutCSS}>About</a>
-					</li>
-					<li>
-						<a href="/contact" class={contactCSS}>Contact Me</a>
-					</li>
-					<li>
-						<a href="/resume" class={resumeCSS}>Resume</a>
-					</li>
-					</ul>
-				</div>
-				<!-- ----DEFAULT MOBILE NAVIGATION---- -->
-				<div class="md:hidden transition-transform w-[90%] overflow-hidden scale-y-0 absolute top-10 mx-5 z-10" id="navbar-mobile">
-					<ul class="flex flex-col p-4 mt-4 border border-[#3BA576] rounded-lg bg-[#081710] md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
-					<li>
-						<a href="/" class={homeCSS} aria-current="page">Home</a>
-					</li>
-					<li>
-						<a href="/about" class={aboutCSS}>About</a>
-					</li>
-					<li>
-						<a href="/contact" class={contactCSS}>Contact Me</a>
-					</li>
-					<li>
-						<a href="/resume" class={resumeCSS}>Resume</a>
-					</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<!-- END NAVBAR -->
-        <slot/>
-
-
-
-		<div>
-			<footer class="p-4 sm:p-6 ">
-			<div class="md:flex md:justify-between">
-				<div class="mb-6 md:mb-0">
-					<a href="https://flowbite.com/" class="flex items-center">
-						
-						<span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Francisco Paliouras
-						</span>
-					</a>
-				</div>
-				<div class="grid grid-cols-2 gap-8 sm:gap-6 ">
-					<div>
-						<h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Pages</h2>
-						<ul class="text-[#3BA576]">
-							<li class="mb-4">
-								<a href="/" class="hover:underline">Home</a>
-							</li>
-							<li class="mb-4">
-								<a href="/about" class="hover:underline">About</a>
-							</li>
-							<li class="mb-4">
-								<a href="/contact" class="hover:underline">Contact Me</a>
-							</li>
-							<li class="mb-4">
-								<a href="/resume" class="hover:underline">Resume</a>
-							</li>
-						</ul>
-					</div>
-					<div>
-						<h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Socials</h2>
-						<ul class="text-[#3BA576]">
-							<li class="mb-4">
-								<a href="https://github.com/fpalio" class="hover:underline ">Github</a>
-							</li>
-							<li>
-								<a href="https://www.linkedin.com/in/francisco-paliouras-10901b134/" class="hover:underline">Linked In</a>
-							</li>
-						</ul>
-					</div>
-					
-				</div>
-			</div>
-			<hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-			<div class="sm:flex sm:items-center sm:justify-between">
-				<span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="www.fpalio.com" class="hover:underline">FPalio™</a>. All Rights Reserved.
-				</span>
-				<div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-					<a href="https://github.com/fpalio" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-						<span class="sr-only">GitHub account</span>
-					</a>
-
-				</div>
-			</div>
-		</footer>
-		</div>
-	</body>
+		 Please feel free to reach out with opportunities or any other inqueries."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="text-white">
+    <canvas id="canvas"></canvas>
+    <nav class="rounded border-gray-200 px-2 py-2.5 sm:px-4">
+      <div class="container mx-auto flex flex-wrap items-center justify-end">
+        <!-- Hamburger Menu -->
+        <button
+          id="nav_btn"
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="ml-3 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+          aria-controls="navbar-default"
+          aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="h-6 w-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <!-- ----DEFAULT WEB NAVIGATION---- -->
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-[#081710] p-4 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:text-sm md:font-medium">
+            <li>
+              <a href="/" class={homeCSS} aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="/about" class={aboutCSS}>About</a>
+            </li>
+            <li>
+              <a href="/contact" class={contactCSS}>Contact Me</a>
+            </li>
+            <li>
+              <a href="/resume" class={resumeCSS}>Resume</a>
+            </li>
+          </ul>
+        </div>
+        <!-- ----DEFAULT MOBILE NAVIGATION---- -->
+        <div
+          class="absolute top-10 z-10 mx-5 w-[90%] scale-y-0 overflow-hidden transition-transform md:hidden"
+          id="navbar-mobile">
+          <ul
+            class="mt-4 flex flex-col rounded-lg border border-[#3BA576] bg-[#081710] p-4 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:text-sm md:font-medium">
+            <li>
+              <a href="/" class={homeCSS} aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="/about" class={aboutCSS}>About</a>
+            </li>
+            <li>
+              <a href="/contact" class={contactCSS}>Contact Me</a>
+            </li>
+            <li>
+              <a href="/resume" class={resumeCSS}>Resume</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END NAVBAR -->
+    <slot />
+    <!-- FOOTER -->
+    <footer class="p-4 sm:p-6">
+      <div class="md:flex md:justify-between">
+        <div class="mb-6 md:mb-0">
+          <a href="https://flowbite.com/" class="flex items-center">
+            <span
+              class="self-center whitespace-nowrap text-2xl font-semibold dark:text-white"
+              >Francisco Paliouras
+            </span>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-8 sm:gap-6">
+          <div>
+            <h2
+              class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+              Pages
+            </h2>
+            <ul class="text-[#3BA576]">
+              <li class="mb-4">
+                <a href="/" class="hover:underline">Home</a>
+              </li>
+              <li class="mb-4">
+                <a href="/about" class="hover:underline">About</a>
+              </li>
+              <li class="mb-4">
+                <a href="/contact" class="hover:underline">Contact Me</a>
+              </li>
+              <li class="mb-4">
+                <a href="/resume" class="hover:underline">Resume</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2
+              class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+              Socials
+            </h2>
+            <ul class="text-[#3BA576]">
+              <li class="mb-4">
+                <a href="https://github.com/fpalio" class="hover:underline">
+                  Github
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/francisco-paliouras-10901b134/"
+                  class="hover:underline">
+                  Linked In
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr
+        class="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8"
+      />
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <span class="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
+          © 2023
+          <a href="www.fpalio.com" class="hover:underline"> FPalio™</a>
+          .All Rights Reserved.
+        </span>
+        <div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+          <a
+            href="https://github.com/fpalio"
+            class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+            <svg
+              class="h-5 w-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              ><path
+                fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="sr-only">GitHub account</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
 <script>
-	/**
-	 * Hambuergur Menu Logic for Mobile menu
-	 */
-	var navBtn = document.getElementById('nav_btn');
-	var menu = document.getElementById('navbar-mobile');
-	navBtn.addEventListener('click', () => {
-		menu.classList.toggle('scale-y-0');
-		menu.classList.toggle('scale-y-100');
-	});
+  /**
+   * HAMBURGER Menu Logic for Mobile menu
+   */
+  var navBtn = document.getElementById("nav_btn");
+  var menu = document.getElementById("navbar-mobile");
+  navBtn.addEventListener("click", () => {
+    menu.classList.toggle("scale-y-0");
+    menu.classList.toggle("scale-y-100");
+  });
 
+  /**
+   * BACKGROUD ANIMATION
+   */
+  var tileSize = 7;
+  // a higher fade factor will make the characters fade quicker
+  var fadeFactor = 0.75;
 
-	/**
-	 * Background animation
-	 */
-	 var tileSize = 7;
-	// a higher fade factor will make the characters fade quicker
-	var fadeFactor = .75;
-	
-	var canvas;
-	var ctx;
-	
-	var columns = [];
-	var maxStackHeight;
-	
-	function init() {
-		canvas = document.getElementById( 'canvas' );
-		ctx = canvas.getContext( '2d' );
-		ctx.fillStyle = "#081710"
-	
-		// https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
-		const resizeObserver = new ResizeObserver( entries => {
-			for ( let entry of entries ) {
-				if ( entry.contentBoxSize ) {
-					// Firefox implements `contentBoxSize` as a single content rect, rather than an array
-					const contentBoxSize = Array.isArray( entry.contentBoxSize ) ? entry.contentBoxSize[0] : entry.contentBoxSize;
-					canvas.width = contentBoxSize.inlineSize;
-					canvas.height = window.innerHeight;
-					initMatrix();
-				}
-			}
-		} );
-	
-		// observe the size of the document
-		resizeObserver.observe( document.documentElement );
-	
-		// start the main loop
-		tick();
-	}
-	
-	function initMatrix() {
-		columns = [];
-	
-		maxStackHeight = Math.ceil(canvas.height/tileSize);
-	
-		// divide the canvas into columns
-		for ( let i = 0 ; i < canvas.width/tileSize ; ++i ) {
-			var column = {};
-			// save the x position of the column
-			column.x = i*tileSize;
-			// create a random stack height for the column
-			column.stackHeight = 10+Math.random()*maxStackHeight;
-			// add a counter to count the stack height
-			column.stackCounter = 0;
-			// add the column to the list
-			columns.push( column );
-		}
-	}
-	
-	function draw() {
-		//draw a semi transparent black rectangle on top of the scene to slowly fade older characters
-		ctx.fillStyle = "rgba( 8,23,16 , "+fadeFactor+" )";
-		ctx.fillRect( 0 , 0 , canvas.width , canvas.height );
-	
-		ctx.font = (tileSize-2)+"px monospace";
-		ctx.fillStyle = "rgb(59, 165, 118 )";
-		for ( let i = 0 ; i < columns.length ; ++i ) {
-			// pick a random ascii character (change the 94 to a higher number to include more characters)
-			var randomCharacter = String.fromCharCode( 33+Math.floor(Math.random()*94) );
-			ctx.fillText( randomCharacter , columns[i].x , columns[i].stackCounter*tileSize+tileSize );
-	
-			// if the stack is at its height limit, pick a new random height and reset the counter
-			if ( ++columns[i].stackCounter >= columns[i].stackHeight ) {
-				columns[i].stackHeight = 10+Math.random()*maxStackHeight;
-				columns[i].stackCounter = 0;
-			}
-		}
-	}
-	
-	// MAIN LOOP
-	function tick() {    
-		draw();
-		setTimeout( tick , 50 );
-	}
-	
-	function updateTileSize() {
-		tileSize = Math.min( Math.max( document.getElementById("tileSize").value , 10 ) , 100 );
-		initMatrix();
-	}
-	
-	function updateFadeFactor() {
-		fadeFactor = Math.min( Math.max( document.getElementById("fadeFactor").value , 0.0 ) , 1.0 );
-		initMatrix();
-	}
-	//Call animation
-	window.addEventListener("load", (event) => {
-		init();
-	});
+  var canvas;
+  var ctx;
+
+  var columns = [];
+  var maxStackHeight;
+
+  function init() {
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#081710";
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        if (entry.contentBoxSize) {
+          // Firefox implements `contentBoxSize` as a single content rect, rather than an array
+          const contentBoxSize = Array.isArray(entry.contentBoxSize)
+            ? entry.contentBoxSize[0]
+            : entry.contentBoxSize;
+          canvas.width = contentBoxSize.inlineSize;
+          canvas.height = window.innerHeight;
+          initMatrix();
+        }
+      }
+    });
+
+    // observe the size of the document
+    resizeObserver.observe(document.documentElement);
+
+    // start the main loop
+    tick();
+  }
+
+  function initMatrix() {
+    columns = [];
+
+    maxStackHeight = Math.ceil(canvas.height / tileSize);
+
+    // divide the canvas into columns
+    for (let i = 0; i < canvas.width / tileSize; ++i) {
+      var column = {};
+      // save the x position of the column
+      column.x = i * tileSize;
+      // create a random stack height for the column
+      column.stackHeight = 10 + Math.random() * maxStackHeight;
+      // add a counter to count the stack height
+      column.stackCounter = 0;
+      // add the column to the list
+      columns.push(column);
+    }
+  }
+
+  function draw() {
+    //draw a semi transparent black rectangle on top of the scene to slowly fade older characters
+    ctx.fillStyle = "rgba( 8,23,16 , " + fadeFactor + " )";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = tileSize - 2 + "px monospace";
+    ctx.fillStyle = "rgb(59, 165, 118 )";
+    for (let i = 0; i < columns.length; ++i) {
+      // pick a random ascii character (change the 94 to a higher number to include more characters)
+      var randomCharacter = String.fromCharCode(
+        33 + Math.floor(Math.random() * 94)
+      );
+      ctx.fillText(
+        randomCharacter,
+        columns[i].x,
+        columns[i].stackCounter * tileSize + tileSize
+      );
+
+      // if the stack is at its height limit, pick a new random height and reset the counter
+      if (++columns[i].stackCounter >= columns[i].stackHeight) {
+        columns[i].stackHeight = 10 + Math.random() * maxStackHeight;
+        columns[i].stackCounter = 0;
+      }
+    }
+  }
+
+  // MAIN LOOP
+  function tick() {
+    draw();
+    setTimeout(tick, 50);
+  }
+
+  function updateTileSize() {
+    tileSize = Math.min(
+      Math.max(document.getElementById("tileSize").value, 10),
+      100
+    );
+    initMatrix();
+  }
+
+  function updateFadeFactor() {
+    fadeFactor = Math.min(
+      Math.max(document.getElementById("fadeFactor").value, 0.0),
+      1.0
+    );
+    initMatrix();
+  }
+  //Call animation
+  window.addEventListener("load", (event) => {
+    init();
+  });
 </script>
 
 <style is:global>
-	footer{
+  #canvas {
+    display: block;
+    margin: 0 auto;
+    position: fixed;
+    z-index: -100;
+    background-color: #081710;
+    height: 100%;
+  }
+  /* *************************************** */
+  /* GLOBAL LOADING ANIMATION FOR ALL PAGES */
+  /* *************************************** */
+  .load {
+    animation-duration: 2s;
+    animation-name: fade-in-load;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
 
-	}
+  @keyframes fade-in-load {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
 
-	#canvas{
-		display:block; 
-		margin:0 auto;
-		position: fixed;
-		z-index: -100;
-		background-color: #081710;
-		height: 100%;
-	}
-
-	/* GLOBAL LOADING ANIMATION FOR ALL PAGES */
-	.load {
-		animation-duration: 2s;
-		animation-name: fade-in-load;
-		animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-	}
-
-	@keyframes fade-in-load {
-		from {
-			opacity: 0;
-			transform: translateY(100px);
-		}
-
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 </style>

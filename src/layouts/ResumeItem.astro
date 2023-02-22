@@ -2,20 +2,17 @@
 /**
  * ResumeItem
  */
-
 ---
 
-<div class="max-w-sm max-h-[90%] rounded  shadow-lg border-2 border-[#3BA576]">
-    <div class="px-6 py-4">
-      <div class="py-2">
-        <slot name="job-name"/>
-        <slot name="job-date"/>
-        <slot name="job-position"/>
-      </div>
-      <slot name="job-desc">
-        No Description found... 
-      </slot>
+<div class="max-h-[90%] max-w-sm rounded border-2 border-[#3BA576] shadow-lg">
+  <div class="px-6 py-4">
+    <div class="py-2">
+      <slot name="job-name" />
+      <slot name="job-date" />
+      <slot name="job-position" />
     </div>
-    <slot name = "job-icon"/>
-    <slot name="job-link"/>
+    <slot name="job-desc"> No Description found...</slot>
   </div>
+  <slot name="job-icon" />
+  <slot name="job-link" />
+</div>
